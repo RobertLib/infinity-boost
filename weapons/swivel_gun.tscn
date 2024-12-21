@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnend3031inym"]
+
+[ext_resource type="PackedScene" uid="uid://b5k7vfji6vnbl" path="res://weapons/turret.tscn" id="1_6vpxe"]
+[ext_resource type="Script" uid="uid://dvlodn6dghf7w" path="res://weapons/swivel_gun.gd" id="1_fjf4c"]
+
+[node name="SwivelGun" type="Node2D"]
+script = ExtResource("1_fjf4c")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -15, 10, -10, 15, 0, 10, 10, 0, 15, -10, 10, -15, 0, -10, -10)
+
+[node name="TurretTop" parent="." instance=ExtResource("1_6vpxe")]
+rotation = -1.5708
+
+[node name="TurretRight" parent="." instance=ExtResource("1_6vpxe")]
+
+[node name="TurretBottom" parent="." instance=ExtResource("1_6vpxe")]
+rotation = 1.5708
+
+[node name="TurretLeft" parent="." instance=ExtResource("1_6vpxe")]
+rotation = 3.14159

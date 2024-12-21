@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg6wfbubejr2r"]
+
+[ext_resource type="Script" uid="uid://vevxxenli3j5" path="res://environment/belt.gd" id="1_halnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6245"]
+size = Vector2(40, 40)
+
+[node name="Belt" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 40.0
+script = ExtResource("1_halnv")
+
+[node name="Part" type="AnimatableBody2D" parent="." groups=["obstacle"]]
+position = Vector2(-40, 0)
+collision_layer = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="Part"]
+position = Vector2(20, 20)
+polygon = PackedVector2Array(-20, -20, 20, -20, 20, 20, -20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part"]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_h6245")

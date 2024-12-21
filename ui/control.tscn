@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8gb2p4q06uga"]
+
+[sub_resource type="Gradient" id="Gradient_vfxgf"]
+offsets = PackedFloat32Array(0, 0.996587)
+colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0.196078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n8cgj"]
+gradient = SubResource("Gradient_vfxgf")
+width = 150
+height = 150
+
+[sub_resource type="Gradient" id="Gradient_evtmc"]
+colors = PackedColorArray(1, 1, 1, 0.588235, 1, 1, 1, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oxt4n"]
+gradient = SubResource("Gradient_evtmc")
+width = 150
+height = 150
+
+[sub_resource type="Gradient" id="Gradient_w68cq"]
+colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0.196078)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gx83q"]
+gradient = SubResource("Gradient_w68cq")
+width = 150
+height = 150
+
+[sub_resource type="Gradient" id="Gradient_gelhi"]
+colors = PackedColorArray(1, 1, 1, 0.588235, 1, 1, 1, 0.588235)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8gipe"]
+gradient = SubResource("Gradient_gelhi")
+width = 150
+height = 150
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="."]
+position = Vector2(60, 942)
+texture_normal = SubResource("GradientTexture2D_n8cgj")
+texture_pressed = SubResource("GradientTexture2D_oxt4n")
+action = "ui_left"
+
+[node name="ButtonRight" type="TouchScreenButton" parent="."]
+position = Vector2(438, 942)
+texture_normal = SubResource("GradientTexture2D_gx83q")
+texture_pressed = SubResource("GradientTexture2D_8gipe")
+action = "ui_right"

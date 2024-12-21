@@ -1,0 +1,174 @@
+[gd_scene load_steps=9 format=3 uid="uid://bvft4mhil8724"]
+
+[sub_resource type="Shader" id="Shader_k6fpj"]
+code = "shader_type canvas_item;
+
+uniform vec4 bg_color : source_color = vec4(0.01, 0.01, 0.02, 1.0);
+uniform vec4 star_color : source_color = vec4(0.8, 0.8, 0.9, 1.0);
+uniform float star_density : hint_range(0.0, 1.0) = 0.5;
+uniform float star_twinkle_speed : hint_range(0.0, 10.0) = 2.0;
+uniform float planet_density : hint_range(0.0, 0.1) = 0.005;
+uniform vec4 planet_color_1 : source_color = vec4(0.6, 0.2, 0.1, 1.0);
+uniform vec4 planet_color_2 : source_color = vec4(0.2, 0.4, 0.7, 1.0);
+uniform vec4 planet_color_3 : source_color = vec4(0.5, 0.5, 0.1, 1.0);
+
+// Random function
+float random(vec2 uv) {
+    return fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453123);
+}
+
+void fragment() {
+    // Background color
+    vec4 color = bg_color;
+
+    // Star field
+    vec2 uv = FRAGCOORD.xy;
+    float cell_size = 10.0;
+    vec2 cell_id = floor(uv / cell_size);
+
+    // Determine if this cell contains a star
+    float rand = random(cell_id);
+    if (rand < star_density) {
+        // Star position within cell
+        vec2 star_pos = cell_size * (cell_id + vec2(random(cell_id + 0.1), random(cell_id + 0.2)));
+
+        // Distance from this fragment to the star
+        float dist = distance(uv, star_pos);
+
+        // Star size and brightness
+        float star_size = 1.5 + random(cell_id + 0.3) * 1.5;
+        float brightness = 1.0 - smoothstep(0.0, star_size, dist);
+
+        // Twinkle effect
+        float time_offset = random(cell_id + 0.4) * 6.28;
+        brightness *= 0.7 + 0.3 * sin(TIME * star_twinkle_speed + time_offset);
+
+        // Mix star color
+        color = mix(color, star_color, brightness);
+    }
+
+    // Planet field (larger cells to make planets more rare)
+    float planet_cell_size = 50.0;
+    vec2 planet_cell_id = floor(uv / planet_cell_size);
+
+    // Determine if this cell contains a planet
+    float planet_rand = random(planet_cell_id + vec2(42.0, 69.0));
+    if (planet_rand < planet_density) {
+        // Planet position within cell
+        vec2 planet_pos = planet_cell_size * (planet_cell_id + vec2(random(planet_cell_id + 0.3), random(planet_cell_id + 0.4)));
+
+        // Distance from this fragment to the planet
+        float planet_dist = distance(uv, planet_pos);
+
+        // Planet size (much larger than stars)
+        float planet_size = 5.0 + random(planet_cell_id + 0.5) * 15.0;
+        float planet_brightness = 1.0 - smoothstep(0.0, planet_size, planet_dist);
+
+        // Select planet color based on random value
+        float color_select = random(planet_cell_id + 0.7);
+        vec4 planet_color;
+        if (color_select < 0.33) {
+            planet_color = planet_color_1;
+        } else if (color_select < 0.66) {
+            planet_color = planet_color_2;
+        } else {
+            planet_color = planet_color_3;
+        }
+
+        // Add some variation/texture to the planet
+        float angle = atan(planet_pos.y - uv.y, planet_pos.x - uv.x);
+        float bands = sin(angle * 10.0 * random(planet_cell_id + 0.8) +
+                          planet_dist * 0.5 * random(planet_cell_id + 0.9));
+        planet_color = mix(planet_color, planet_color * (0.8 + 0.2 * bands), 0.3);
+
+        // Mix planet color
+        color = mix(color, planet_color, planet_brightness);
+    }
+
+    COLOR = color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b8upt"]
+shader = SubResource("Shader_k6fpj")
+shader_parameter/bg_color = Color(0.01, 0.01, 0.02, 1)
+shader_parameter/star_color = Color(0.8, 0.8, 0.901961, 0.588235)
+shader_parameter/star_density = 0.1
+shader_parameter/star_twinkle_speed = 2.0
+shader_parameter/planet_density = 0.005
+shader_parameter/planet_color_1 = Color(0.6, 0.2, 0.1, 1.0)
+shader_parameter/planet_color_2 = Color(0.2, 0.4, 0.7, 1.0)
+shader_parameter/planet_color_3 = Color(0.5, 0.5, 0.1, 1.0)
+
+[sub_resource type="Gradient" id="Gradient_7fk8m"]
+offsets = PackedFloat32Array(0, 0.3, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_d4vq7"]
+gradient = SubResource("Gradient_7fk8m")
+
+[sub_resource type="Curve" id="Curve_1jmdc"]
+_data = [Vector2(0, 0), 0.0, 5.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_aqx8y"]
+curve = SubResource("Curve_1jmdc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gxhb8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 400, 1)
+direction = Vector3(-1, 0, 0)
+spread = 10.0
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_aqx8y")
+color_ramp = SubResource("GradientTexture1D_d4vq7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xpwlf"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 400, 1)
+spread = 10.0
+initial_velocity_min = 500.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_aqx8y")
+color_ramp = SubResource("GradientTexture1D_d4vq7")
+
+[node name="StarryBackground" type="CanvasLayer"]
+layer = -100
+
+[node name="StarsRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_b8upt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MeteorsLeft" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(1000, 576)
+amount = 2
+lifetime = 3.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_gxhb8")
+
+[node name="MeteorsRight" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(-100, 576)
+amount = 2
+lifetime = 3.0
+randomness = 1.0
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_xpwlf")

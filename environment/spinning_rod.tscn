@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgakeqwehftf7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lsltu"]
+size = Vector2(100, 10)
+
+[sub_resource type="Animation" id="Animation_o2fdq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fvgl4"]
+resource_name = "rotation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpbsn"]
+_data = {
+&"RESET": SubResource("Animation_o2fdq"),
+&"rotation": SubResource("Animation_fvgl4")
+}
+
+[node name="SpinningRod" type="Node2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 2
+
+[node name="Polygon2D" type="Polygon2D" parent="AnimatableBody2D"]
+polygon = PackedVector2Array(-50, -5, 50, -5, 50, 5, -50, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+shape = SubResource("RectangleShape2D_lsltu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lpbsn")
+}
+autoplay = "rotation"
