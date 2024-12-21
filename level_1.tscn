@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4dfrnrou46qg"]
+
+[ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
+[ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="2_813rc"]
+[ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6mjln")]
+position = Vector2(324, 864)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -400)
+position_smoothing_enabled = true
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(320, 1191)
+rotation = 1.5708
+scale = Vector2(0.958, 17.97)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(150, 900)
+scale = Vector2(0.958, 30)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(490, 900)
+scale = Vector2(0.958, 30)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(276, 332)
+rotation = 0.436332
+scale = Vector2(0.958, 30)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(617, 332)
+rotation = 0.436332
+scale = Vector2(0.958, 30)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(403, -236)
+scale = Vector2(0.958, 30)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(743, -236)
+scale = Vector2(0.958, 30)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(276, -804)
+rotation = -0.436332
+scale = Vector2(0.958, 30)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(617, -804)
+rotation = -0.436332
+scale = Vector2(0.958, 30)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(150, -1372)
+scale = Vector2(0.958, 30)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(491, -1372)
+scale = Vector2(0.958, 30)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(320, -1663)
+rotation = 1.5708
+scale = Vector2(0.958, 17.92)
+
+[node name="Finish" parent="." instance=ExtResource("3_ukofe")]
+position = Vector2(320, -1550)
