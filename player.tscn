@@ -1,9 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmhu7ghxnpjdo"]
+[gd_scene load_steps=5 format=3 uid="uid://dmhu7ghxnpjdo"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_i5yen"]
 
+[sub_resource type="Curve" id="Curve_fc4ri"]
+max_value = 8.0
+_data = [Vector2(0, 8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bn8t4"]
+curve = SubResource("Curve_fc4ri")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8k60"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_bn8t4")
+
 [node name="Player" type="RigidBody2D"]
 script = ExtResource("1_i5yen")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 20)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_y8k60")
+lifetime = 0.5
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(0, -30, 20, 20, -20, 20)
