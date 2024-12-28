@@ -1,7 +1,13 @@
+class_name Player
+
 extends RigidBody2D
+
+signal exploded
 
 const UPWARD_FORCE := Vector2(0, -120)
 const ROTATION_SPEED := 60.0
+
+const ExplosionScene := preload("res://explosion.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,3 +32,16 @@ func _physics_process(_delta: float) -> void:
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 	var rotated_force := UPWARD_FORCE.rotated(rotation)
 	apply_central_force(rotated_force)
+
+
+func _on_body_entered(body: Node) -> void:
+	if body is Wall:
+		explode()
+
+
+func explode() -> void:
+	var explosion := ExplosionScene.instantiate() as Explosion
+	explosion.global_position = global_position
+	get_parent().add_child(explosion)
+	exploded.emit()
+	queue_free()

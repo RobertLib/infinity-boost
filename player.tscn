@@ -13,10 +13,13 @@ curve = SubResource("Curve_fc4ri")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y8k60"]
 lifetime_randomness = 1.0
 particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
+gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_bn8t4")
 
 [node name="Player" type="RigidBody2D"]
+collision_mask = 2
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_i5yen")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -30,3 +33,5 @@ polygon = PackedVector2Array(0, -30, 20, 20, -20, 20)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, -30, 20, 20, -20, 20)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

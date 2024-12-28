@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=7 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
+[ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
+[ext_resource type="Script" path="res://camera.gd" id="2_7ae4q"]
 [ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="2_813rc"]
 [ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
 
@@ -10,13 +12,17 @@ glow_enabled = true
 glow_strength = 1.6
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_mdx6c")
 
 [node name="Player" parent="." instance=ExtResource("1_6mjln")]
 position = Vector2(324, 864)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+position = Vector2(324, 864)
 offset = Vector2(0, -400)
 position_smoothing_enabled = true
+script = ExtResource("2_7ae4q")
+target_node = NodePath("../Player")
 
 [node name="Walls" type="Node2D" parent="."]
 
