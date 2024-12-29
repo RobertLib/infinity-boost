@@ -8,6 +8,7 @@ var player_start_position := Vector2(0, 0)
 
 @onready var player := $Player as Player
 @onready var camera := $Camera2D as Camera
+@onready var status_bar := $CanvasLayer/StatusBar as StatusBar
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +23,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_player_exploded() -> void:
+	Globals.lives -= 1
+	status_bar.update()
 	await get_tree().create_timer(1).timeout
 	instantiate_player()
 
