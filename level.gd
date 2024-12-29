@@ -23,10 +23,15 @@ func _process(_delta: float) -> void:
 
 
 func _on_player_exploded() -> void:
+	await get_tree().create_timer(1).timeout
+
 	Globals.lives -= 1
 	status_bar.update()
-	await get_tree().create_timer(1).timeout
-	instantiate_player()
+
+	if Globals.lives > 0:
+		instantiate_player()
+	else:
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 
 func instantiate_player() -> void:

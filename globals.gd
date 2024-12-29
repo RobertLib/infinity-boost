@@ -1,5 +1,5 @@
 extends Node
 
-const INITIAL_LIVES := 3
+const STARTING_LIVES := 3
 
-var lives := INITIAL_LIVES
+var lives := STARTING_LIVES
