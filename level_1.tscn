@@ -87,6 +87,9 @@ position = Vector2(320, -1550)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_jgw0q")]
+metadata/_edit_lock_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mfptq")
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

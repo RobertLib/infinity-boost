@@ -17,6 +17,7 @@ gravity = Vector3(0, 0, 0)
 scale_curve = SubResource("CurveTexture_bn8t4")
 
 [node name="Player" type="RigidBody2D"]
+z_index = 1
 collision_mask = 2
 contact_monitor = true
 max_contacts_reported = 1

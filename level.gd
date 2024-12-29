@@ -31,7 +31,7 @@ func _on_player_exploded() -> void:
 	if Globals.lives > 0:
 		instantiate_player()
 	else:
-		get_tree().change_scene_to_file("res://game_over.tscn")
+		Globals.change_scene("game_over")
 
 
 func instantiate_player() -> void:
@@ -40,3 +40,7 @@ func instantiate_player() -> void:
 	new_player.global_position = player_start_position
 	call_deferred("add_child", new_player)
 	camera.target_node = new_player
+
+
+func _on_finish_body_entered(_body: Node2D) -> void:
+	Globals.next_level()

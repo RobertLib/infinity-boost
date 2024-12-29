@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi31d70e6mfex"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_f4jpn"]
+[ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="2_vuq65"]
+[ext_resource type="Script" path="res://camera.gd" id="3_qe70j"]
+[ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="4_vyvav"]
+[ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="5_vkur2"]
+[ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_uw8uk"]
+
+[sub_resource type="Environment" id="Environment_mfptq"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.6
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_f4jpn")
+
+[node name="Player" parent="." instance=ExtResource("2_vuq65")]
+position = Vector2(324, 864)
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+position = Vector2(324, 864)
+offset = Vector2(0, -400)
+position_smoothing_enabled = true
+script = ExtResource("3_qe70j")
+target_node = NodePath("../Player")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(320, 1191)
+rotation = 1.5708
+scale = Vector2(0.958, 17.97)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(150, -254)
+scale = Vector2(0.958, 145.48)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(491, -254)
+scale = Vector2(0.958, 145.48)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(320, -1699)
+rotation = 1.5708
+scale = Vector2(0.958, 17.97)
+
+[node name="Finish" parent="." instance=ExtResource("5_vkur2")]
+position = Vector2(320, -1550)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_uw8uk")]
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mfptq")
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

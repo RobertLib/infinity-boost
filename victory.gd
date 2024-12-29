@@ -1,4 +1,4 @@
-class_name GameOver
+class_name Victory
 
 extends Control
 
