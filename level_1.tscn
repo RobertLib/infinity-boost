@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=9 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
@@ -6,11 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="2_813rc"]
 [ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
 [ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_jgw0q"]
-
-[sub_resource type="Environment" id="Environment_mfptq"]
-background_mode = 3
-glow_enabled = true
-glow_strength = 1.6
+[ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_ka28u"]
+[ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_mdx6c")
@@ -89,7 +86,8 @@ position = Vector2(320, -1550)
 [node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_jgw0q")]
 metadata/_edit_lock_ = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_mfptq")
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_ka28u")]
+
+[node name="Environment" parent="." instance=ExtResource("8_n11pn")]
 
 [connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

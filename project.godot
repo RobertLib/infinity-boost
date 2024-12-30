@@ -25,6 +25,11 @@ Globals="*res://globals.gd"
 window/size/viewport_width=648
 window/size/viewport_height=1152
 window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [layer_names]
 
@@ -39,4 +44,5 @@ window/stretch/mode="canvas_items"
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.0666667, 0.0666667, 0.0666667, 1)
