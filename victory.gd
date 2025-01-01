@@ -1,5 +1,3 @@
-class_name Victory
-
 extends Control
 
 

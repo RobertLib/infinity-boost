@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=11 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
 [ext_resource type="Script" path="res://camera.gd" id="2_7ae4q"]
 [ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="2_813rc"]
 [ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
+[ext_resource type="PackedScene" uid="uid://io6r3r6kthhx" path="res://key.tscn" id="5_y4cho"]
+[ext_resource type="PackedScene" uid="uid://cooywf7xefgs1" path="res://door.tscn" id="6_1hgtp"]
 [ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_jgw0q"]
 [ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_ka28u"]
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
@@ -77,6 +79,35 @@ scale = Vector2(0.958, 30)
 position = Vector2(320, -1663)
 rotation = 1.5708
 scale = Vector2(0.958, 17.92)
+
+[node name="Keys" type="Node2D" parent="."]
+
+[node name="Key" parent="Keys" instance=ExtResource("5_y4cho")]
+position = Vector2(420, 370)
+
+[node name="Key2" parent="Keys" instance=ExtResource("5_y4cho")]
+position = Vector2(570, -230)
+type = 1
+
+[node name="Key3" parent="Keys" instance=ExtResource("5_y4cho")]
+position = Vector2(430, -820)
+type = 2
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("6_1hgtp")]
+position = Vector2(320.5, -1400)
+scale = Vector2(16.15, 1)
+
+[node name="Door2" parent="Doors" instance=ExtResource("6_1hgtp")]
+position = Vector2(320.5, -1420)
+scale = Vector2(16.15, 1)
+type = 1
+
+[node name="Door3" parent="Doors" instance=ExtResource("6_1hgtp")]
+position = Vector2(320.5, -1440)
+scale = Vector2(16.15, 1)
+type = 2
 
 [node name="Finish" parent="." instance=ExtResource("3_ukofe")]
 position = Vector2(320, -1550)

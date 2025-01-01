@@ -35,12 +35,12 @@ func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body is Wall:
-		explode()
+	if body.is_in_group("obstacle"):
+		_explode()
 
 
-func explode() -> void:
-	var explosion := ExplosionScene.instantiate() as Explosion
+func _explode() -> void:
+	var explosion: Explosion = ExplosionScene.instantiate()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
 	exploded.emit()

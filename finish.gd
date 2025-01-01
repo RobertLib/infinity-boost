@@ -1,5 +1,3 @@
-class_name Finish
-
 extends Area2D
 
 

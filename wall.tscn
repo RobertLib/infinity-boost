@@ -1,14 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5tkxic2m1l1k"]
-
-[ext_resource type="Script" path="res://wall.gd" id="1_cr63k"]
+[gd_scene format=3 uid="uid://b5tkxic2m1l1k"]
 
 [node name="Wall" type="Polygon2D"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["obstacle"]]
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_cr63k")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
