@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=12 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cooywf7xefgs1" path="res://door.tscn" id="6_1hgtp"]
 [ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_jgw0q"]
 [ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_ka28u"]
+[ext_resource type="PackedScene" uid="uid://dg6wfbubejr2r" path="res://belt.tscn" id="7_mp2ql"]
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
 
 [node name="Level1" type="Node2D"]
@@ -108,6 +109,21 @@ type = 1
 position = Vector2(320.5, -1440)
 scale = Vector2(16.15, 1)
 type = 2
+
+[node name="Belts" type="Node2D" parent="."]
+
+[node name="Belt" parent="Belts" instance=ExtResource("7_mp2ql")]
+offset_left = 413.0
+offset_top = -75.0
+offset_right = 733.0
+offset_bottom = -35.0
+
+[node name="Belt2" parent="Belts" instance=ExtResource("7_mp2ql")]
+offset_left = 413.0
+offset_top = -450.0
+offset_right = 733.0
+offset_bottom = -410.0
+dir = 1
 
 [node name="Finish" parent="." instance=ExtResource("3_ukofe")]
 position = Vector2(320, -1550)
