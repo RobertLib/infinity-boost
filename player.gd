@@ -8,6 +8,7 @@ const UPWARD_FORCE := Vector2(0, -120)
 const ROTATION_SPEED := 60.0
 
 const ExplosionScene := preload("res://explosion.tscn")
+const BulletScene := preload("res://bullet.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -45,3 +46,15 @@ func _explode() -> void:
 	get_parent().add_child(explosion)
 	exploded.emit()
 	queue_free()
+
+
+func _shoot():
+	var bullet: Bullet = BulletScene.instantiate()
+	bullet.global_position = Vector2(0, -30).rotated(rotation) + global_position
+	bullet.rotation = rotation
+	get_parent().add_child(bullet)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_select"):
+		_shoot()
