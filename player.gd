@@ -58,3 +58,7 @@ func _shoot():
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_select"):
 		_shoot()
+
+
+func hit():
+	_explode()
