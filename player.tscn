@@ -24,15 +24,15 @@ max_contacts_reported = 1
 script = ExtResource("1_i5yen")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(0, 20)
+position = Vector2(-20, 0)
 amount = 32
 process_material = SubResource("ParticleProcessMaterial_y8k60")
 lifetime = 0.5
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(0, -30, 20, 20, -20, 20)
+polygon = PackedVector2Array(-20, -20, 30, 0, -20, 20)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, -30, 20, 20, -20, 20)
+polygon = PackedVector2Array(-20, -20, 30, 0, -20, 20)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -9,11 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_clokw"]
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_cekom"]
 
-[node name="Level2" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_f4jpn")
 
 [node name="Player" parent="." instance=ExtResource("2_vuq65")]
 position = Vector2(324, 864)
+rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
 position = Vector2(324, 864)

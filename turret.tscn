@@ -6,7 +6,7 @@
 script = ExtResource("1_y5sn2")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-4, 0, -4, -24, 4, -24, 4, 0)
+polygon = PackedVector2Array(0, -4, 24, -4, 24, 4, 0, 4)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

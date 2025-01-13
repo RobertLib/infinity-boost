@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=14 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
@@ -12,12 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://dg6wfbubejr2r" path="res://belt.tscn" id="7_mp2ql"]
 [ext_resource type="PackedScene" uid="uid://b5k7vfji6vnbl" path="res://turret.tscn" id="8_e0aht"]
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
+[ext_resource type="PackedScene" uid="uid://bufaees025tg7" path="res://enemy.tscn" id="9_xk2hk"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource("1_mdx6c")
 
 [node name="Player" parent="." instance=ExtResource("1_6mjln")]
 position = Vector2(324, 864)
+rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
 position = Vector2(324, 864)
@@ -130,11 +132,17 @@ dir = 1
 
 [node name="Turret" parent="Turrets" instance=ExtResource("8_e0aht")]
 position = Vector2(249, 412)
-rotation = 2.00713
+rotation = 0.445059
 
 [node name="Turret2" parent="Turrets" instance=ExtResource("8_e0aht")]
 position = Vector2(597, 353)
-rotation = -1.13446
+rotation = -2.70526
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("9_xk2hk")]
+position = Vector2(570, 65)
+rotation = -1.5708
 
 [node name="Finish" parent="." instance=ExtResource("3_ukofe")]
 position = Vector2(320, -1550)

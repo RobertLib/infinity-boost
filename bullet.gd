@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(0, -speed * delta).rotated(rotation)
+	position += Vector2(speed * delta, 0).rotated(rotation)
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

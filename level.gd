@@ -3,6 +3,7 @@ extends Node2D
 const PlayerScene := preload("res://player.tscn")
 
 var player_start_position := Vector2(0, 0)
+var player_start_rotation := 0.0
 
 @onready var player: Player = $Player
 @onready var camera: Camera = $Camera2D
@@ -13,6 +14,7 @@ var player_start_position := Vector2(0, 0)
 func _ready() -> void:
 	player.connect("exploded", _on_player_exploded)
 	player_start_position = player.global_position
+	player_start_rotation = player.rotation
 
 	if has_node("Keys"):
 		for key in $Keys.get_children():
@@ -40,6 +42,7 @@ func _instantiate_player() -> void:
 	var new_player: Player = PlayerScene.instantiate()
 	new_player.connect("exploded", _on_player_exploded)
 	new_player.global_position = player_start_position
+	new_player.rotation = player_start_rotation
 	call_deferred("add_child", new_player)
 	camera.target_node = new_player
 

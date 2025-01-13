@@ -4,7 +4,7 @@ extends RigidBody2D
 
 signal exploded
 
-const UPWARD_FORCE := Vector2(0, -120)
+const FORWARD_FORCE := Vector2(120, 0)
 const ROTATION_SPEED := 60.0
 
 const ExplosionScene := preload("res://explosion.tscn")
@@ -31,12 +31,12 @@ func _physics_process(_delta: float) -> void:
 
 
 func _integrate_forces(_state: PhysicsDirectBodyState2D) -> void:
-	var rotated_force := UPWARD_FORCE.rotated(rotation)
+	var rotated_force := FORWARD_FORCE.rotated(rotation)
 	apply_central_force(rotated_force)
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("obstacle"):
+	if body.is_in_group("obstacle") or body.is_in_group("enemy"):
 		_explode()
 
 
@@ -50,7 +50,7 @@ func _explode() -> void:
 
 func _shoot():
 	var bullet: Bullet = BulletScene.instantiate()
-	bullet.global_position = Vector2(0, -30).rotated(rotation) + global_position
+	bullet.global_position = Vector2(35, 0).rotated(rotation) + global_position
 	bullet.rotation = rotation
 	get_parent().add_child(bullet)
 
