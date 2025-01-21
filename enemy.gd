@@ -9,6 +9,7 @@ const RAY_CAST_LENGTH := 300.0
 const TIME_LOST_SIGHT := 10.0
 
 const BulletScene := preload("res://bullet.tscn")
+const ExplosionScene := preload("res://explosion.tscn")
 
 var turning_state: TurningState = TurningState.NONE
 var stationary_time := 0.0
@@ -111,9 +112,16 @@ func _physics_process(delta: float) -> void:
 			apply_torque_impulse(angle_to_player * ROTATION_SPEED / 2)
 
 
+func _explode() -> void:
+	var explosion: Explosion = ExplosionScene.instantiate()
+	explosion.global_position = global_position
+	get_parent().add_child(explosion)
+	queue_free()
+
+
 func _shoot():
 	var bullet: Bullet = BulletScene.instantiate()
-	bullet.global_position = Vector2(35, 0).rotated(rotation) + global_position
+	bullet.global_position = Vector2(50, 0).rotated(rotation) + global_position
 	bullet.rotation = rotation
 	get_parent().add_child(bullet)
 
@@ -133,3 +141,7 @@ func _on_view_body_exited(body: Node2D) -> void:
 
 func _on_shoot_timer_timeout() -> void:
 	_shoot()
+
+
+func hit():
+	_explode()

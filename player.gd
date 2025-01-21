@@ -22,6 +22,8 @@ func _process(_delta: float) -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_right"):
+		_shoot()
 	if Input.is_action_pressed("ui_left"):
 		apply_torque_impulse(-ROTATION_SPEED)
 		linear_velocity *= 0.98
@@ -50,7 +52,7 @@ func _explode() -> void:
 
 func _shoot():
 	var bullet: Bullet = BulletScene.instantiate()
-	bullet.global_position = Vector2(35, 0).rotated(rotation) + global_position
+	bullet.global_position = Vector2(50, 0).rotated(rotation) + global_position
 	bullet.rotation = rotation
 	get_parent().add_child(bullet)
 
