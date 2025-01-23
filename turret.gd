@@ -15,6 +15,6 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var bullet: Bullet = BulletScene.instantiate()
-	bullet.global_position = global_position + Vector2(24, 0).rotated(rotation)
-	get_parent().add_child(bullet)
-	bullet.rotation = rotation
+	var offset = Vector2(24, 0)
+	bullet.global_transform = global_transform.translated(offset.rotated(global_rotation))
+	get_node("/root/Level").add_child(bullet)

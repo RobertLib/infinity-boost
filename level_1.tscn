@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=16 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
 [ext_resource type="PackedScene" uid="uid://bufaees025tg7" path="res://enemy.tscn" id="9_xk2hk"]
 [ext_resource type="PackedScene" uid="uid://c75wbbvi3m2b0" path="res://mine.tscn" id="10_1wrgv"]
+[ext_resource type="PackedScene" uid="uid://cnend3031inym" path="res://swivel_gun.tscn" id="11_pq6t4"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mdx6c")
@@ -149,6 +150,11 @@ rotation = -1.5708
 
 [node name="Mine" parent="Mines" instance=ExtResource("10_1wrgv")]
 position = Vector2(400, 630)
+
+[node name="SwivelGuns" type="Node2D" parent="."]
+
+[node name="SwivelGun" parent="SwivelGuns" instance=ExtResource("11_pq6t4")]
+position = Vector2(525, 160)
 
 [node name="Finish" parent="." instance=ExtResource("3_ukofe")]
 position = Vector2(320, -1550)
