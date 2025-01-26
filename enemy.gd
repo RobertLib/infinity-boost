@@ -127,7 +127,7 @@ func _shoot():
 
 
 func _on_view_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body.is_in_group("player"):
 		current_state = EnemyState.TRACKING
 		$Polygon2D.color = Color(1, 0, 0)
 		time_since_player_seen = 0.0
@@ -135,7 +135,7 @@ func _on_view_body_entered(body: Node2D) -> void:
 
 
 func _on_view_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body.is_in_group("player"):
 		shoot_timer.stop()
 
 

@@ -64,3 +64,7 @@ func _input(event: InputEvent) -> void:
 
 func hit():
 	_explode()
+
+
+func speed_up():
+	apply_central_impulse(FORWARD_FORCE.rotated(rotation))

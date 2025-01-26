@@ -1,7 +1,5 @@
 extends Area2D
 
-const ExplosionScene := preload("res://explosion.tscn")
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,14 +13,7 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		_explode()
+		if body.has_method("speed_up"):
+			body.speed_up()
 
-		if body.has_method("hit"):
-			body.hit()
-
-
-func _explode() -> void:
-	var explosion: Explosion = ExplosionScene.instantiate()
-	explosion.global_position = global_position
-	get_parent().add_child(explosion)
-	queue_free()
+		queue_free()

@@ -16,7 +16,6 @@ script = ExtResource("1_halnv")
 [node name="Part" type="AnimatableBody2D" parent="." groups=["obstacle"]]
 position = Vector2(-40, 0)
 collision_layer = 2
-collision_mask = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="Part"]
 position = Vector2(20, 20)

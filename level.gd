@@ -47,8 +47,9 @@ func _instantiate_player() -> void:
 	camera.target_node = new_player
 
 
-func _on_finish_body_entered(_body: Node2D) -> void:
-	Globals.next_level()
+func _on_finish_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		Globals.next_level()
 
 
 func _on_key_picked(key: Key) -> void:

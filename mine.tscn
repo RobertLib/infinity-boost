@@ -6,7 +6,6 @@
 radius = 100.0
 
 [node name="Mine" type="Area2D"]
-collision_layer = 0
 script = ExtResource("1_nguyn")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
