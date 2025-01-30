@@ -3,6 +3,7 @@ class_name StatusBar
 extends Control
 
 @onready var lives: Label = $MarginContainer/Lives
+@onready var time: Label = $MarginContainer/Time
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,3 +18,4 @@ func _process(_delta: float) -> void:
 
 func update() -> void:
 	lives.text = "LIVES: " + str(Globals.lives)
+	time.text = "TIME: " + str(int(Globals.time))
