@@ -12,4 +12,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	Globals.change_level(1)
+	Globals.change_scene("levels_menu")
