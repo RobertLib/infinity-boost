@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://djardes3ef7b2"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_78us2"]
+[ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="2_qc484"]
+[ext_resource type="Script" path="res://camera.gd" id="3_y2t3k"]
+[ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="4_oqyt2"]
+[ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="5_2fkmn"]
+[ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_riece"]
+[ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_lipmi"]
+[ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_kegwa"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_78us2")
+
+[node name="Player" parent="." instance=ExtResource("2_qc484")]
+position = Vector2(324, 864)
+rotation = -1.5708
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+position = Vector2(324, 864)
+offset = Vector2(0, -400)
+position_smoothing_enabled = true
+script = ExtResource("3_y2t3k")
+target_node = NodePath("../Player")
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(320, 1191)
+rotation = 1.5708
+scale = Vector2(0.958, 17.97)
+
+[node name="Finish" parent="." instance=ExtResource("5_2fkmn")]
+position = Vector2(320, -1550)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_riece")]
+metadata/_edit_lock_ = true
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_lipmi")]
+
+[node name="Environment" parent="." instance=ExtResource("8_kegwa")]
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

@@ -61,9 +61,20 @@ func _instantiate_player() -> void:
 	player = new_player
 
 
+func _level_completion() -> void:
+	if Globals.level >= Globals.LEVEL_COUNT:
+		Globals.change_scene("victory")
+	else:
+		Globals.change_scene("levels_menu")
+
+	if Globals.level > Globals.reached_level:
+		Globals.reached_level = Globals.level
+		Globals.save()
+
+
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		Globals.next_level()
+		_level_completion()
 
 
 func _on_key_picked(key: Key) -> void:

@@ -1,21 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=9 format=3 uid="uid://b4dfrnrou46qg"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
 [ext_resource type="Script" path="res://camera.gd" id="2_7ae4q"]
 [ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="2_813rc"]
 [ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
-[ext_resource type="PackedScene" uid="uid://io6r3r6kthhx" path="res://key.tscn" id="5_y4cho"]
-[ext_resource type="PackedScene" uid="uid://cooywf7xefgs1" path="res://door.tscn" id="6_1hgtp"]
 [ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_jgw0q"]
 [ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_ka28u"]
-[ext_resource type="PackedScene" uid="uid://dg6wfbubejr2r" path="res://belt.tscn" id="7_mp2ql"]
-[ext_resource type="PackedScene" uid="uid://b5k7vfji6vnbl" path="res://turret.tscn" id="8_e0aht"]
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
-[ext_resource type="PackedScene" uid="uid://bufaees025tg7" path="res://enemy.tscn" id="9_xk2hk"]
-[ext_resource type="PackedScene" uid="uid://c75wbbvi3m2b0" path="res://mine.tscn" id="10_1wrgv"]
-[ext_resource type="PackedScene" uid="uid://cnend3031inym" path="res://swivel_gun.tscn" id="11_pq6t4"]
-[ext_resource type="PackedScene" uid="uid://cbbado5umtb1i" path="res://acc_item.tscn" id="12_vil4j"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mdx6c")
@@ -37,130 +29,6 @@ target_node = NodePath("../Player")
 position = Vector2(320, 1191)
 rotation = 1.5708
 scale = Vector2(0.958, 17.97)
-
-[node name="Wall2" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(150, 900)
-scale = Vector2(0.958, 30)
-
-[node name="Wall3" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(490, 900)
-scale = Vector2(0.958, 30)
-
-[node name="Wall4" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(276, 332)
-rotation = 0.436332
-scale = Vector2(0.958, 30)
-
-[node name="Wall5" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(617, 332)
-rotation = 0.436332
-scale = Vector2(0.958, 30)
-
-[node name="Wall6" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(403, -236)
-scale = Vector2(0.958, 30)
-
-[node name="Wall7" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(743, -236)
-scale = Vector2(0.958, 30)
-
-[node name="Wall8" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(276, -804)
-rotation = -0.436332
-scale = Vector2(0.958, 30)
-
-[node name="Wall9" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(617, -804)
-rotation = -0.436332
-scale = Vector2(0.958, 30)
-
-[node name="Wall10" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(150, -1372)
-scale = Vector2(0.958, 30)
-
-[node name="Wall11" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(491, -1372)
-scale = Vector2(0.958, 30)
-
-[node name="Wall12" parent="Walls" instance=ExtResource("2_813rc")]
-position = Vector2(320, -1663)
-rotation = 1.5708
-scale = Vector2(0.958, 17.92)
-
-[node name="Keys" type="Node2D" parent="."]
-
-[node name="Key" parent="Keys" instance=ExtResource("5_y4cho")]
-position = Vector2(420, 370)
-
-[node name="Key2" parent="Keys" instance=ExtResource("5_y4cho")]
-position = Vector2(570, -230)
-type = 1
-
-[node name="Key3" parent="Keys" instance=ExtResource("5_y4cho")]
-position = Vector2(430, -820)
-type = 2
-
-[node name="Doors" type="Node2D" parent="."]
-
-[node name="Door" parent="Doors" instance=ExtResource("6_1hgtp")]
-position = Vector2(320.5, -1400)
-scale = Vector2(16.15, 1)
-
-[node name="Door2" parent="Doors" instance=ExtResource("6_1hgtp")]
-position = Vector2(320.5, -1420)
-scale = Vector2(16.15, 1)
-type = 1
-
-[node name="Door3" parent="Doors" instance=ExtResource("6_1hgtp")]
-position = Vector2(320.5, -1440)
-scale = Vector2(16.15, 1)
-type = 2
-
-[node name="Belts" type="Node2D" parent="."]
-
-[node name="Belt" parent="Belts" instance=ExtResource("7_mp2ql")]
-offset_left = 413.0
-offset_top = -75.0
-offset_right = 733.0
-offset_bottom = -35.0
-
-[node name="Belt2" parent="Belts" instance=ExtResource("7_mp2ql")]
-offset_left = 413.0
-offset_top = -450.0
-offset_right = 733.0
-offset_bottom = -410.0
-dir = 1
-
-[node name="Turrets" type="Node2D" parent="."]
-
-[node name="Turret" parent="Turrets" instance=ExtResource("8_e0aht")]
-position = Vector2(249, 412)
-rotation = 0.445059
-
-[node name="Turret2" parent="Turrets" instance=ExtResource("8_e0aht")]
-position = Vector2(597, 353)
-rotation = -2.70526
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Enemy" parent="Enemies" instance=ExtResource("9_xk2hk")]
-position = Vector2(570, 65)
-rotation = -1.5708
-
-[node name="Mines" type="Node2D" parent="."]
-
-[node name="Mine" parent="Mines" instance=ExtResource("10_1wrgv")]
-position = Vector2(400, 630)
-
-[node name="SwivelGuns" type="Node2D" parent="."]
-
-[node name="SwivelGun" parent="SwivelGuns" instance=ExtResource("11_pq6t4")]
-position = Vector2(525, 160)
-
-[node name="Items" type="Node2D" parent="."]
-
-[node name="AccItem" parent="Items" instance=ExtResource("12_vil4j")]
-position = Vector2(250, 695)
 
 [node name="Finish" parent="." instance=ExtResource("3_ukofe")]
 position = Vector2(320, -1550)
