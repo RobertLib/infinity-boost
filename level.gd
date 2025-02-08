@@ -1,7 +1,8 @@
 extends Node2D
 
-const TIME_LIMIT := 100
 const PlayerScene := preload("res://player.tscn")
+
+@export var time_limit := 100.0
 
 var player_start_position := Vector2(0, 0)
 var player_start_rotation := 0.0
@@ -9,6 +10,7 @@ var player_start_rotation := 0.0
 @onready var player: Player = $Player
 @onready var camera: Camera = $Camera2D
 @onready var status_bar: StatusBar = $CanvasLayer/StatusBar
+@onready var time := time_limit
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,8 +19,6 @@ func _ready() -> void:
 	player_start_position = player.global_position
 	player_start_rotation = player.rotation
 
-	Globals.time = TIME_LIMIT
-
 	if has_node("Keys"):
 		for key in $Keys.get_children():
 			key.connect("picked", _on_key_picked)
@@ -26,15 +26,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	status_bar.update()
+	status_bar.update(Globals.lives, time)
 
-	if Globals.time > 1:
-		Globals.time -= delta
+	if time > 1:
+		time -= delta
 	else:
-		Globals.time = 0
-
-		if is_instance_valid(player):
-			player.hit()
+		Globals.change_scene("levels_menu")
 
 
 func _on_player_exploded() -> void:
@@ -44,9 +41,6 @@ func _on_player_exploded() -> void:
 
 	if Globals.lives > 0:
 		_instantiate_player()
-
-		if Globals.time <= 0:
-			Globals.time = TIME_LIMIT
 	else:
 		Globals.change_scene("game_over")
 

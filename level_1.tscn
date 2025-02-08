@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4dfrnrou46qg"]
+[gd_scene load_steps=9 format=3 uid="uid://2fjy6afipfnb"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
@@ -11,6 +11,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_mdx6c")
+time_limit = 20.0
 
 [node name="Player" parent="." instance=ExtResource("1_6mjln")]
 position = Vector2(324, 864)
@@ -30,12 +31,62 @@ position = Vector2(320, 1191)
 rotation = 1.5708
 scale = Vector2(0.958, 17.97)
 
+[node name="Wall2" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(150, 704.35)
+scale = Vector2(0.958, 47.735)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(490, 704.35)
+scale = Vector2(0.958, 47.735)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(521.58, -714.65)
+scale = Vector2(0.958, 47.735)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(353.463, -1478.46)
+rotation = -0.525382
+scale = Vector2(0.958, 33.6857)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(186, -1941.54)
+scale = Vector2(0.958, 17.5464)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(355.965, -2107)
+rotation = 1.5708
+scale = Vector2(0.958, 16.0473)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(526, -1941)
+scale = Vector2(0.958, 17.5929)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(694, -1479)
+rotation = -0.525382
+scale = Vector2(0.958, 33.6857)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(336, -5)
+rotation = 0.670169
+scale = Vector2(0.958, 30.3369)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(676.415, -5.52504)
+rotation = 0.666013
+scale = Vector2(0.958, 30.3276)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("2_813rc")]
+position = Vector2(861.58, -714.65)
+scale = Vector2(0.958, 47.735)
+
 [node name="Finish" parent="." instance=ExtResource("3_ukofe")]
-position = Vector2(320, -1550)
+position = Vector2(356, -1942)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("7_ka28u")]
+metadata/_edit_lock_ = true
 
 [node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_jgw0q")]
 metadata/_edit_lock_ = true

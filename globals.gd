@@ -4,7 +4,6 @@ const STARTING_LIVES := 3
 const LEVEL_COUNT := 3
 
 var lives := STARTING_LIVES
-var time := 0.0
 var level := 1
 var reached_level := 0
 

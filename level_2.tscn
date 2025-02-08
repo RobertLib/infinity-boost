@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi31d70e6mfex"]
+[gd_scene load_steps=9 format=3 uid="uid://dpaidivwaghau"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_f4jpn"]
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="2_vuq65"]
@@ -36,6 +36,7 @@ position = Vector2(320, -1550)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" parent="CanvasLayer" instance=ExtResource("7_clokw")]
+metadata/_edit_lock_ = true
 
 [node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_uw8uk")]
 metadata/_edit_lock_ = true
