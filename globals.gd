@@ -36,3 +36,10 @@ func load() -> void:
 
 		reached_level = save_data["reached_level"]
 		save_file.close()
+
+
+func clear_save() -> void:
+	var dir := DirAccess.open("user://")
+
+	if dir and dir.file_exists("savegame.save"):
+		dir.remove("savegame.save")

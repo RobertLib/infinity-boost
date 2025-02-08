@@ -32,14 +32,14 @@ custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 columns = 3
 
-[node name="Button" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
+[node name="Level1Btn" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 28
 text = "Level 1"
 
-[node name="Button2" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
+[node name="Level2Btn" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -47,7 +47,7 @@ theme_override_font_sizes/font_size = 28
 text = "Level 2
 "
 
-[node name="Button3" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
+[node name="Level3Btn" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
