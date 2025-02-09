@@ -1,10 +1,10 @@
 class_name Settings
 
-extends Control
+extends PanelContainer
 
 signal close_settings
 
-@onready var clear_data_btn: Button = $MarginContainer/VBoxContainer/VBoxContainer2/ClearDataBtn
+@onready var clear_data_btn: Button = $VBoxContainer/VBoxContainer2/ClearDataBtn
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +20,10 @@ func _process(_delta: float) -> void:
 func _on_close_btn_pressed() -> void:
 	close_settings.emit()
 	clear_data_btn.disabled = false
+
+
+func _on_go_to_list_pressed() -> void:
+	Globals.change_scene("levels_menu")
 
 
 func _on_clear_data_btn_pressed() -> void:

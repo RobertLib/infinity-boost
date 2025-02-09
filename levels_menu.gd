@@ -1,11 +1,11 @@
-extends Control
+extends ScrollContainer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.load()
 
-	var grid_container := $ScrollContainer/MarginContainer/GridContainer
+	var grid_container := $MarginContainer/GridContainer
 
 	for i in range(grid_container.get_child_count()):
 		var button: Button = grid_container.get_child(i)

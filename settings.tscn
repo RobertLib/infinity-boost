@@ -1,57 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://di317ilb4ifvj"]
+[gd_scene load_steps=3 format=3 uid="uid://di317ilb4ifvj"]
 
 [ext_resource type="Script" path="res://settings.gd" id="1_hdp1t"]
 
-[node name="Settings" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hjb7"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 0.784314)
+
+[node name="Settings" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2hjb7")
 script = ExtResource("1_hdp1t")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 24
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+alignment = 2
 
-[node name="CloseBtn" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CloseBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Close"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 24
 
-[node name="ClearDataBtn" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+[node name="GoToList" type="Button" parent="VBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+text = "Go to list"
+
+[node name="ClearDataBtn" type="Button" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = "Clear data"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer2/ClearDataBtn" to="." method="_on_clear_data_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/GoToList" to="." method="_on_go_to_list_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/ClearDataBtn" to="." method="_on_clear_data_btn_pressed"]

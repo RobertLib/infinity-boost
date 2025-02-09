@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2fjy6afipfnb"]
+[gd_scene load_steps=10 format=3 uid="uid://2fjy6afipfnb"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
 [ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
 [ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_jgw0q"]
 [ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://control.tscn" id="7_ka28u"]
+[ext_resource type="PackedScene" uid="uid://byn4m6vnp87r0" path="res://result.tscn" id="8_dja3k"]
 [ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment.tscn" id="8_n11pn"]
 
 [node name="Level" type="Node2D"]
@@ -89,6 +90,10 @@ position = Vector2(356, -1942)
 metadata/_edit_lock_ = true
 
 [node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_jgw0q")]
+metadata/_edit_lock_ = true
+
+[node name="Result" parent="CanvasLayer" instance=ExtResource("8_dja3k")]
+visible = false
 metadata/_edit_lock_ = true
 
 [node name="Environment" parent="." instance=ExtResource("8_n11pn")]

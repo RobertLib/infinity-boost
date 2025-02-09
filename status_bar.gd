@@ -1,9 +1,9 @@
 class_name StatusBar
 
-extends Control
+extends MarginContainer
 
-@onready var livesLabel: Label = $MarginContainer/HBoxContainer/LivesLabel
-@onready var timeLabel: Label = $MarginContainer/HBoxContainer/TimeLabel
+@onready var lives_label: Label = $HBoxContainer/LivesLabel
+@onready var time_label: Label = $HBoxContainer/TimeLabel
 @onready var settings: Settings = $Settings
 
 
@@ -18,8 +18,8 @@ func _process(_delta: float) -> void:
 
 
 func update(lives: int, time: float) -> void:
-	livesLabel.text = "LIVES: " + str(lives)
-	timeLabel.text = "TIME: " + str(int(time))
+	lives_label.text = "LIVES: " + str(lives)
+	time_label.text = "TIME: " + str(int(time))
 
 
 func _on_settings_btn_pressed() -> void:

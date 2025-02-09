@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://levels_menu.gd" id="1_n6fma"]
 
-[node name="LevelsMenu" type="Control"]
-layout_mode = 3
+[node name="LevelsMenu" type="ScrollContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,15 +10,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n6fma")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50
@@ -27,30 +18,30 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="GridContainer" type="GridContainer" parent="ScrollContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 custom_minimum_size = Vector2(300, 150)
 layout_mode = 2
 columns = 3
 
-[node name="Level1Btn" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
+[node name="Level1Btn" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "Level 1"
 
-[node name="Level2Btn" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
+[node name="Level2Btn" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "Level 2
 "
 
-[node name="Level3Btn" type="Button" parent="ScrollContainer/MarginContainer/GridContainer"]
+[node name="Level3Btn" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 32
 text = "Level 3
 "

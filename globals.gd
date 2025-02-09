@@ -20,6 +20,15 @@ func change_level(number: int) -> void:
 	lives = STARTING_LIVES
 
 
+func restart_level() -> void:
+	change_level(level)
+
+
+func next_level() -> void:
+	if level < LEVEL_COUNT:
+		change_level(level + 1)
+
+
 func save() -> void:
 	var save_data := {"reached_level": reached_level}
 	var save_file := FileAccess.open("user://savegame.save", FileAccess.WRITE)

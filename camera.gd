@@ -12,5 +12,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if target_node and is_instance_valid(target_node):
+	if target_node != null:
 		position = target_node.global_position

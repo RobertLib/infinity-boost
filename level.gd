@@ -10,6 +10,7 @@ var player_start_rotation := 0.0
 @onready var player: Player = $Player
 @onready var camera: Camera = $Camera2D
 @onready var status_bar: StatusBar = $CanvasLayer/StatusBar
+@onready var result: Result = $CanvasLayer/Result
 @onready var time := time_limit
 
 
@@ -31,7 +32,10 @@ func _process(delta: float) -> void:
 	if time > 1:
 		time -= delta
 	else:
-		Globals.change_scene("levels_menu")
+		if player != null:
+			player.hit()
+			await get_tree().create_timer(1).timeout
+			result.level_failed()
 
 
 func _on_player_exploded() -> void:
@@ -42,7 +46,7 @@ func _on_player_exploded() -> void:
 	if Globals.lives > 0:
 		_instantiate_player()
 	else:
-		Globals.change_scene("game_over")
+		result.level_failed()
 
 
 func _instantiate_player() -> void:
@@ -59,7 +63,7 @@ func _level_completion() -> void:
 	if Globals.level >= Globals.LEVEL_COUNT:
 		Globals.change_scene("victory")
 	else:
-		Globals.change_scene("levels_menu")
+		result.level_completed()
 
 	if Globals.level > Globals.reached_level:
 		Globals.reached_level = Globals.level
