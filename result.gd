@@ -29,6 +29,12 @@ func level_failed() -> void:
 	show()
 
 
+func time_out() -> void:
+	label.text = "Time out"
+	get_tree().paused = true
+	show()
+
+
 func _exit_tree() -> void:
 	get_tree().paused = false
 

@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 		if player != null:
 			player.hit()
 			await get_tree().create_timer(1).timeout
-			result.level_failed()
+			result.time_out()
 
 
 func _on_player_exploded() -> void:
