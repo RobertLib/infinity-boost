@@ -11,6 +11,7 @@ var player_start_rotation := 0.0
 @onready var camera: Camera = $Camera2D
 @onready var status_bar: StatusBar = $CanvasLayer/StatusBar
 @onready var result: Result = $CanvasLayer/Result
+@onready var finish: Finish = $Finish
 @onready var time := time_limit
 
 
@@ -72,7 +73,28 @@ func _level_completion() -> void:
 
 func _on_finish_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		_level_completion()
+		var tween = create_tween().set_parallel(true)
+
+		(
+			tween
+			. tween_property(player, "global_position", finish.global_position, 0.5)
+			. set_trans(Tween.TRANS_SINE)
+			. set_ease(Tween.EASE_IN_OUT)
+		)
+		(
+			tween
+			. tween_property(player, "rotation", player.rotation + deg_to_rad(360), 0.5)
+			. set_trans(Tween.TRANS_SINE)
+			. set_ease(Tween.EASE_IN_OUT)
+		)
+		(
+			tween
+			. tween_property(player, "scale", player.scale * 0.0, 0.5)
+			. set_trans(Tween.TRANS_SINE)
+			. set_ease(Tween.EASE_IN_OUT)
+		)
+
+		tween.connect("finished", _level_completion)
 
 
 func _on_key_picked(key: Key) -> void:
