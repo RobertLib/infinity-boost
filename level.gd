@@ -3,7 +3,10 @@ extends Node2D
 const PlayerScene := preload("res://player.tscn")
 
 @export var time_limit := 100.0
+@export var history_duration := 2.0
 
+var global_time := 0.0
+var position_history := []
 var player_start_position := Vector2(0, 0)
 var player_start_rotation := 0.0
 
@@ -28,6 +31,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	global_time += delta
+
+	if player != null:
+		position_history.append({"time": global_time, "position": player.global_position})
+
+	while (
+		position_history.size() > 0
+		and position_history[0]["time"] < global_time - history_duration - 0.1
+	):
+		position_history.remove_at(0)
+
 	status_bar.update(Globals.lives, time)
 
 	if time > 1:
@@ -53,7 +67,15 @@ func _on_player_exploded() -> void:
 func _instantiate_player() -> void:
 	var new_player: Player = PlayerScene.instantiate()
 	new_player.connect("exploded", _on_player_exploded)
-	new_player.global_position = player_start_position
+
+	var target_time := global_time - history_duration
+	var new_position := player_start_position
+	for i in range(position_history.size() - 1, -1, -1):
+		if position_history[i]["time"] <= target_time:
+			new_position = position_history[i]["position"]
+			break
+
+	new_player.global_position = new_position
 	new_player.rotation = player_start_rotation
 	call_deferred("add_child", new_player)
 	camera.target_node = new_player
