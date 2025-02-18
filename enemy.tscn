@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bufaees025tg7"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_swuyk"]
+[ext_resource type="Script" uid="uid://u30jn1wvsd5p" path="res://enemy.gd" id="1_swuyk"]
 
 [node name="Enemy" type="RigidBody2D" groups=["enemy"]]
 collision_layer = 4

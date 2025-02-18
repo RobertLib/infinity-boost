@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2a0yruq05ap"]
 
-[ext_resource type="Script" path="res://status_bar.gd" id="1_x61dx"]
+[ext_resource type="Script" uid="uid://dmu8f7rb0q440" path="res://status_bar.gd" id="1_x61dx"]
 [ext_resource type="PackedScene" uid="uid://di317ilb4ifvj" path="res://settings.tscn" id="2_s8dej"]
 
 [node name="StatusBar" type="MarginContainer"]

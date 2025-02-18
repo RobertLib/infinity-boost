@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnend3031inym"]
 
 [ext_resource type="PackedScene" uid="uid://b5k7vfji6vnbl" path="res://turret.tscn" id="1_6vpxe"]
-[ext_resource type="Script" path="res://swivel_gun.gd" id="1_fjf4c"]
+[ext_resource type="Script" uid="uid://dvlodn6dghf7w" path="res://swivel_gun.gd" id="1_fjf4c"]
 
 [node name="SwivelGun" type="Node2D"]
 script = ExtResource("1_fjf4c")

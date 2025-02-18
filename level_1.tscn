@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://2fjy6afipfnb"]
 
 [ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://player.tscn" id="1_6mjln"]
-[ext_resource type="Script" path="res://level.gd" id="1_mdx6c"]
-[ext_resource type="Script" path="res://camera.gd" id="2_7ae4q"]
+[ext_resource type="Script" uid="uid://3crkmbrgh27r" path="res://level.gd" id="1_mdx6c"]
+[ext_resource type="Script" uid="uid://d37icd3dev8tp" path="res://camera.gd" id="2_7ae4q"]
 [ext_resource type="PackedScene" uid="uid://b5tkxic2m1l1k" path="res://wall.tscn" id="2_813rc"]
 [ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://finish.tscn" id="3_ukofe"]
 [ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://status_bar.tscn" id="6_jgw0q"]

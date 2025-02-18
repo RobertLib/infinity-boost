@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ufk17vylerpb"]
 
-[ext_resource type="Script" path="res://victory.gd" id="1_ghx85"]
+[ext_resource type="Script" uid="uid://otnsfu7vn415" path="res://victory.gd" id="1_ghx85"]
 
 [node name="Victory" type="CenterContainer"]
 anchors_preset = 15

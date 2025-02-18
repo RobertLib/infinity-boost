@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cduibcv1u2r20"]
 
-[ext_resource type="Script" path="res://levels_menu.gd" id="1_n6fma"]
+[ext_resource type="Script" uid="uid://b0yng6ng5rqam" path="res://levels_menu.gd" id="1_n6fma"]
 
 [node name="LevelsMenu" type="ScrollContainer"]
 anchors_preset = 15

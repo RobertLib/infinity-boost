@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmhu7ghxnpjdo"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_i5yen"]
+[ext_resource type="Script" uid="uid://dvrkodbyqjc5o" path="res://player.gd" id="1_i5yen"]
 
 [sub_resource type="Curve" id="Curve_fc4ri"]
-max_value = 8.0
+_limits = [0.0, 8.0, 0.0, 1.0]
 _data = [Vector2(0, 8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
