@@ -5,6 +5,7 @@ extends PanelContainer
 signal close_settings
 
 @onready var clear_data_btn: Button = $VBoxContainer/VBoxContainer2/ClearDataBtn
+@onready var clear_data_confirm: ConfirmationDialog = $ClearDataConfirm
 
 
 # Called when the node enters the scene tree for the first time.
@@ -27,5 +28,10 @@ func _on_go_to_list_pressed() -> void:
 
 
 func _on_clear_data_btn_pressed() -> void:
+	clear_data_confirm.popup_centered()
+
+
+func _on_clear_data_confirm_confirmed() -> void:
 	Globals.clear_save()
-	clear_data_btn.disabled = true
+	Globals.reached_level = 0
+	Globals.change_scene("main_menu")

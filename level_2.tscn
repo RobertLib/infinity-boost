@@ -27,9 +27,33 @@ target_node = NodePath("../Player")
 [node name="Walls" type="Node2D" parent="."]
 
 [node name="Wall" parent="Walls" instance=ExtResource("4_vyvav")]
-position = Vector2(320, 1191)
+position = Vector2(320, 1200)
 rotation = 1.5708
-scale = Vector2(0.958, 17.97)
+scale = Vector2(1, 20)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(130, 760)
+rotation = 3.14159
+scale = Vector2(1, 45)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(510, 760)
+rotation = 3.14159
+scale = Vector2(1, 45)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(207, 23)
+rotation = 3.40339
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(587, 23)
+rotation = 3.40339
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
 
 [node name="Finish" parent="." instance=ExtResource("5_vkur2")]
 position = Vector2(320, -1550)
