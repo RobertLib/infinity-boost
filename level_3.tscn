@@ -31,6 +31,64 @@ position = Vector2(320, 1200)
 rotation = 1.5708
 scale = Vector2(1, 20)
 
+[node name="Wall2" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(130, 650)
+scale = Vector2(1, 56)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(510, 650)
+scale = Vector2(1, 56)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(197, -159)
+rotation = 0.261799
+scale = Vector2(0.995, 26)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(239, -479)
+rotation = -0.331613
+scale = Vector2(1, 7.8)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(401, -479)
+rotation = 0.331613
+scale = Vector2(1, 7.8)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(443, -159)
+rotation = -0.261799
+scale = Vector2(1, 26)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall6" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(111, -654)
+rotation = -0.785398
+scale = Vector2(1, 15)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(529, -654)
+rotation = 0.785398
+scale = Vector2(1, 15)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(-45, -949)
+rotation = -0.261799
+scale = Vector2(1, 20)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("4_oqyt2")]
+position = Vector2(685, -949)
+rotation = 0.261799
+scale = Vector2(1, 20)
+polygon = PackedVector2Array(-10, -10, 0.0314331, -10, 10, -10, 10, 10, -10, 10)
+
 [node name="Finish" parent="." instance=ExtResource("5_2fkmn")]
 position = Vector2(320, -1550)
 

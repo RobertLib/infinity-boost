@@ -12,6 +12,7 @@
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_f4jpn")
+time_limit = 40.0
 
 [node name="Player" parent="." instance=ExtResource("2_vuq65")]
 position = Vector2(324, 864)
@@ -44,9 +45,9 @@ scale = Vector2(1, 45)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
 
 [node name="Wall4" parent="Walls" instance=ExtResource("4_vyvav")]
-position = Vector2(207, 23)
+position = Vector2(233, -74)
 rotation = 3.40339
-scale = Vector2(1, 30)
+scale = Vector2(1, 40)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
 
 [node name="Wall5" parent="Walls" instance=ExtResource("4_vyvav")]
@@ -55,8 +56,127 @@ rotation = 3.40339
 scale = Vector2(1, 30)
 polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
 
+[node name="Wall6" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(535, -804)
+rotation = 3.66519
+scale = Vector2(1, 40)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall7" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(814, -524)
+rotation = 3.66519
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall8" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(1016, -1431)
+rotation = 3.92699
+scale = Vector2(1, 40)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall9" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(1174, -994)
+rotation = 3.92699
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall10" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(1643, -1912)
+rotation = 4.18879
+scale = Vector2(1, 40)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall11" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(1643, -1354)
+rotation = 4.18879
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall12" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2372, -2214)
+rotation = 4.45059
+scale = Vector2(1, 40)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall13" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2189, -1580)
+rotation = 4.45059
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall19" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2116, -1662)
+rotation = 3.28122
+scale = Vector2(1, 10)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall20" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2181, -1683)
+rotation = 2.58224
+scale = Vector2(1, 10)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall23" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(3475, -1620)
+rotation = 3.76991
+scale = Vector2(1, 10)
+offset = Vector2(42, 1.5)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall24" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(3475, -1620)
+rotation = 3.07178
+scale = Vector2(1, 10)
+offset = Vector2(-43, 2)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall21" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2850, -2243)
+rotation = 0.401426
+scale = Vector2(1, 10)
+offset = Vector2(42, 0.5)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall22" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2850, -2243)
+rotation = -0.296706
+scale = Vector2(1, 10)
+offset = Vector2(-40, 1.5)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall14" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(3156, -2317)
+rotation = 4.71239
+scale = Vector2(1, 40)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall15" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(2776, -1657)
+rotation = 4.71239
+scale = Vector2(1, 30)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall16" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(3981, -2203)
+rotation = 4.97419
+scale = Vector2(1, 44.3)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10)
+
+[node name="Wall17" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(3642, -1505)
+rotation = 4.97419
+scale = Vector2(1, 59)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
+[node name="Wall18" parent="Walls" instance=ExtResource("4_vyvav")]
+position = Vector2(4301, -1723)
+rotation = 3.40339
+scale = Vector2(1, 39)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -0.369064, 10, -10, 10, -10.0001, -5.07345)
+
 [node name="Finish" parent="." instance=ExtResource("5_vkur2")]
-position = Vector2(320, -1550)
+position = Vector2(3964, -1814)
+scale = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
