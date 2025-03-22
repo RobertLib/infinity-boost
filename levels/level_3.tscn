@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://djardes3ef7b2"]
+
+[ext_resource type="Script" uid="uid://3crkmbrgh27r" path="res://levels/level.gd" id="1_78us2"]
+[ext_resource type="PackedScene" uid="uid://dmhu7ghxnpjdo" path="res://entities/player.tscn" id="2_qc484"]
+[ext_resource type="PackedScene" uid="uid://bvft4mhil8724" path="res://environment/starry_background.tscn" id="2_wj73x"]
+[ext_resource type="Script" uid="uid://d37icd3dev8tp" path="res://core/camera.gd" id="3_y2t3k"]
+[ext_resource type="Script" uid="uid://b1q74finn4vq8" path="res://environment/arena.gd" id="4_kmy7e"]
+[ext_resource type="PackedScene" uid="uid://beil2o2wdgl20" path="res://environment/finish.tscn" id="5_2fkmn"]
+[ext_resource type="PackedScene" uid="uid://b5k7vfji6vnbl" path="res://weapons/turret.tscn" id="5_b60u5"]
+[ext_resource type="PackedScene" uid="uid://b2a0yruq05ap" path="res://ui/status_bar.tscn" id="6_riece"]
+[ext_resource type="PackedScene" uid="uid://bufaees025tg7" path="res://entities/enemy.tscn" id="7_0unm6"]
+[ext_resource type="PackedScene" uid="uid://c8gb2p4q06uga" path="res://ui/control.tscn" id="7_lipmi"]
+[ext_resource type="PackedScene" uid="uid://cvdhfawbwltfn" path="res://environment/environment.tscn" id="8_kegwa"]
+[ext_resource type="PackedScene" uid="uid://byn4m6vnp87r0" path="res://ui/result.tscn" id="8_uqfv2"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_78us2")
+
+[node name="StarryBackground" parent="." instance=ExtResource("2_wj73x")]
+
+[node name="Player" parent="." instance=ExtResource("2_qc484")]
+position = Vector2(320, 864)
+rotation = -1.5708
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target_node")]
+position = Vector2(320, 864)
+offset = Vector2(0, -400)
+position_smoothing_enabled = true
+script = ExtResource("3_y2t3k")
+target_node = NodePath("../Player")
+
+[node name="Arena" type="Polygon2D" parent="."]
+color = Color(0.5, 0.7, 1, 0.15)
+polygon = PackedVector2Array(128, 1200, 512, 1200, 512, 96, 376, -408, 424, -552, 632, -760, 736, -1144, 736, -1784, 448.232, -1784, 448, -2424, 640, -3008, 320, -3264, 0, -3008, 192, -2424, 191.925, -1784, -96, -1784, -96, -1144, 8, -760, 216, -552, 264, -408, 128, 96)
+script = ExtResource("4_kmy7e")
+
+[node name="Turrets" type="Node2D" parent="."]
+
+[node name="Turret" parent="Turrets" instance=ExtResource("5_b60u5")]
+position = Vector2(128, 512)
+
+[node name="Turret2" parent="Turrets" instance=ExtResource("5_b60u5")]
+position = Vector2(512, 384)
+rotation = 3.14159
+
+[node name="Turret3" parent="Turrets" instance=ExtResource("5_b60u5")]
+position = Vector2(448, -1984)
+rotation = 3.14159
+
+[node name="Turret4" parent="Turrets" instance=ExtResource("5_b60u5")]
+position = Vector2(192, -2112)
+rotation = 6.28319
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("7_0unm6")]
+position = Vector2(128, -1216)
+rotation = 1.5708
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("7_0unm6")]
+position = Vector2(512, -1216)
+rotation = 1.5708
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("7_0unm6")]
+position = Vector2(320, -1536)
+rotation = 1.5708
+
+[node name="Enemy4" parent="Enemies" instance=ExtResource("7_0unm6")]
+position = Vector2(320, -2752)
+rotation = 1.5708
+
+[node name="Finish" parent="." instance=ExtResource("5_2fkmn")]
+position = Vector2(320, -3008)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_lipmi")]
+metadata/_edit_lock_ = true
+
+[node name="StatusBar" parent="CanvasLayer" instance=ExtResource("6_riece")]
+metadata/_edit_lock_ = true
+
+[node name="Result" parent="CanvasLayer" instance=ExtResource("8_uqfv2")]
+visible = false
+metadata/_edit_lock_ = true
+
+[node name="Environment" parent="." instance=ExtResource("8_kegwa")]
+
+[connection signal="body_entered" from="Finish" to="." method="_on_finish_body_entered"]

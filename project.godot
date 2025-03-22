@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Infinity Boost"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://screens/main_menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
-Globals="*res://globals.gd"
+Globals="*res://autoload/globals.gd"
 
 [display]
 
