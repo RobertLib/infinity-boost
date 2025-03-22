@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://di317ilb4ifvj"]
+
+[ext_resource type="Script" uid="uid://bhbnb7omjybyp" path="res://ui/settings.gd" id="1_hdp1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hjb7"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0, 0, 0, 0.784314)
+
+[sub_resource type="Theme" id="Theme_x2hje"]
+default_font_size = 22
+
+[node name="Settings" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2hjb7")
+script = ExtResource("1_hdp1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="CloseBtn" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="GoToList" type="Button" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Go to list"
+
+[node name="ClearDataBtn" type="Button" parent="VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Clear data"
+
+[node name="ClearDataConfirm" type="ConfirmationDialog" parent="."]
+title = "Confirm Data Deletion"
+initial_position = 1
+size = Vector2i(520, 140)
+theme = SubResource("Theme_x2hje")
+ok_button_text = "Yes, Delete"
+dialog_text = "Are you sure you want to delete all saved data?
+This action cannot be undone."
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseBtn" to="." method="_on_close_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/GoToList" to="." method="_on_go_to_list_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/ClearDataBtn" to="." method="_on_clear_data_btn_pressed"]
+[connection signal="confirmed" from="ClearDataConfirm" to="." method="_on_clear_data_confirm_confirmed"]

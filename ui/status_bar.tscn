@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2a0yruq05ap"]
+
+[ext_resource type="Script" uid="uid://dmu8f7rb0q440" path="res://ui/status_bar.gd" id="1_x61dx"]
+[ext_resource type="PackedScene" uid="uid://di317ilb4ifvj" path="res://ui/settings.tscn" id="2_s8dej"]
+
+[node name="StatusBar" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+script = ExtResource("1_x61dx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LivesLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "LIVES: 0"
+
+[node name="TimeLabel" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "TIME: 0"
+
+[node name="SettingsBtn" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+
+[node name="Settings" parent="." instance=ExtResource("2_s8dej")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="HBoxContainer/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="close_settings" from="Settings" to="." method="_on_settings_close_settings"]

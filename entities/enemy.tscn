@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://bufaees025tg7"]
+
+[ext_resource type="Script" uid="uid://u30jn1wvsd5p" path="res://entities/enemy.gd" id="1_swuyk"]
+
+[node name="Enemy" type="RigidBody2D" groups=["enemy"]]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_swuyk")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(0, -10, 30, 0, 0, 10, -10, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -10, 30, 0, 0, 10, -10, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+rotation = -0.261799
+target_position = Vector2(600, 0)
+collision_mask = 2
+
+[node name="RayCastCenter" type="RayCast2D" parent="."]
+target_position = Vector2(600, 0)
+collision_mask = 2
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+rotation = 0.261799
+target_position = Vector2(600, 0)
+collision_mask = 2
+
+[node name="View" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="View"]
+polygon = PackedVector2Array(600, -300, 600, 300, 0, 0)
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="body_entered" from="View" to="." method="_on_view_body_entered"]
+[connection signal="body_exited" from="View" to="." method="_on_view_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

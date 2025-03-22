@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cooywf7xefgs1"]
+
+[ext_resource type="Script" uid="uid://d52hk2nvuym4" path="res://environment/door.gd" id="1_wkftr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4adyh"]
+
+[node name="Door" type="Polygon2D"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+script = ExtResource("1_wkftr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["obstacle"]]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_4adyh")
